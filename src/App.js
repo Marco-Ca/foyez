@@ -1,15 +1,24 @@
-// Importing the css file from the same directory. Using the css file was the styling method used in this project instead of inline styles as this looks cleaner
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+
 import './App.css';
 
-// Importing Home component which is the page that handles the rendering of the YOLO implementation.
 import Home from './components/Home'
+import ObjectDetection from './components/ObjectDetection'
+import ImageRecognition from './components/ImageRecognition'
 
-function App() {
-  return (
-    <div className="App">
-      <Home />
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/object_detection" component={ObjectDetection} />
+          <Route path="/image_recognition" component={ImageRecognition}/>
+        </Switch>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
